@@ -93,7 +93,6 @@ impl<'r> Responder<'r, 'static> for CCNamedFileWrapper {
         }
 
         cache_control.push(';');
-        println!("{}", cache_control);
         response.set_header(Header::new("Cache-Control", cache_control));
         Ok(response)
     }
@@ -111,7 +110,7 @@ impl From<CCFileServer> for Vec<Route> {
 #[derive(Debug, Clone)]
 pub struct CCOptions {
     pub expires: Option<HttpDate>,
-    pub max_age: Option<u8>,
+    pub max_age: Option<u32>,
     pub is_public: Option<bool>,
     pub no_cache: Option<()>,
     pub no_store: Option<()>,

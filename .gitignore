@@ -1,2 +1,4 @@
 /target
 /Cargo.lock
+/.idea/
+/rocket_cc_file_server.iml

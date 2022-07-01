@@ -20,7 +20,18 @@ fn rocket() -> Rocket<Build> {
 }
 ```
 
+## Usage
+
+Mount the CCFileServer the same way you mount a normal rocket FileServer.
+
+Additionally, you need to provide a CCOptions struct to configure the headers of the CCFileServer.
+Every field that has *Some* value will be set as a header.
+
+## TODO's for 1.0.0
+
 Right now it is just a prototype. There are still some things to do:
 
-- [ ] Port the rocket Options
+- [x] Port the rocket Options
 - [ ] Implement all caching options
+  - [ ] Provide optional function to calculate expires date
+  - [ ] Implement E-tags

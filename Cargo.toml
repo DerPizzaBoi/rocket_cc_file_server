@@ -1,6 +1,6 @@
 [package]
 name = "rocket_cc_file_server"
-version = "0.1.1"
+version = "0.1.0-alpha.1"
 authors = ["Yannick Wegel <dev@pizzaboi.de>"]
 edition = "2021"
 
@@ -8,6 +8,9 @@ license = "MIT"
 repository = "https://github.com/DerPizzaBoi/rocket_cc_file_server"
 description = "A custom FileServer providing better cache control for the Rocket web framework."
 readme = "README.md"
+
+keywords = ["rocket", "Cache-Control", "caching", "max-age"]
+categories = ["web-programming"]
 
 [dependencies]
 rocket = "0.5.0-rc.2"

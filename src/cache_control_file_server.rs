@@ -6,12 +6,11 @@ use httpdate::HttpDate;
 
 use rocket::{Data, error, Request, warn_};
 use rocket::fs::{NamedFile, Options};
-use rocket::http::{ContentType, Header, HeaderMap, Method};
+use rocket::http::{Header, Method};
 use rocket::http::ext::IntoOwned;
 use rocket::http::uri::Segments;
 use rocket::response::{Redirect, Responder};
 use rocket::route::{Handler, Outcome, Route};
-use rocket::tokio::fs::File;
 
 /// Custom handler for serving static files.
 ///

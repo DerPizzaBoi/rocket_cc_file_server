@@ -13,6 +13,10 @@ use rocket::response::{Redirect, Responder};
 use rocket::route::{Handler, Outcome, Route};
 use rocket::tokio::fs::File;
 
+/// Custom handler for serving static files.
+///
+/// This handler servers the same purpose as the normal rocket `FileSever`, but it
+/// additionally provides Options for cache-control headers.
 #[derive(Debug, Clone)]
 pub struct CCFileServer {
     root: PathBuf,
@@ -25,6 +29,9 @@ impl CCFileServer {
     /// The default rank. Same as rocket `FileServer`
     const DEFAULT_RANK: isize = 10;
 
+    /// Constructs a new `FileServer` that serves files from the file system
+    /// `path` with `cc_options` and `options` enabled.
+    ///
     // Copyright 2016 Sergio Benitez
     // Adapted from the `Rocket`-framework's FileServer implementation.
     // src: https://github.com/SergioBenitez/Rocket/blob/b6448fc01629c02196a439075db4d09d5c7b2091/core/lib/src/fs/server.rs line 143-163
@@ -173,6 +180,11 @@ impl From<CCFileServer> for Vec<Route> {
     }
 }
 
+/// A Struct representing multiple optional CacheControl-headers for the `CCFileServer`
+///
+/// If an Option is set to None, that header will not be set. If it is set to Some, a
+/// header will be set and will be populated with a value if available.
+///
 #[derive(Debug, Clone)]
 pub struct CCOptions {
     pub expires: Option<HttpDate>, //Todo let user provide function to calculate expires date

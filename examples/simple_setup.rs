@@ -1,5 +1,3 @@
-#![no_main]
-
 use std::sync::Arc;
 use rocket::{Build, Rocket, launch};
 use rocket::fs::Options;

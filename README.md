@@ -30,8 +30,13 @@ Every field that has *Some* value will be set as a header.
 ## TODO's for 1.0.0
 
 Right now it is just a prototype. There are still some things to do:
-
+pub max_age: Option<u32>,
+pub is_public: Option<bool>,
+pub no_cache: Option<()>,
+pub no_store: Option<()>,
 - [x] Port the rocket Options
 - [ ] Implement all caching options
+  - [x] max-age header
+  - [x] public/private, no_cache and no_store
   - [ ] Provide optional function to calculate expires date
   - [ ] Implement E-tags

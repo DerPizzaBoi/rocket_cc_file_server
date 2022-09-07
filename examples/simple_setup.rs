@@ -21,6 +21,6 @@ fn rocket() -> Rocket<Build> {
         //.attach(...)  //setup your rocket instance as usual
         //.mount(...)
         .mount("/assets", CCFileServer::new("assets/", options.clone(), Options::default())) //simply add this to create a FileServer with the options provided
-        .mount("/img", CCFileServer::new("img/", options.clone(), Options::default())) //Options reusable for multiple FileServer
+        .mount("/img", CCFileServer::new("img/", options, Options::default())) //Options reusable for multiple FileServer
         .mount("/js", CCFileServer::new("js/", js_options, Options::default())) //You can also use different options for different filetypes/directories
 }

@@ -10,13 +10,14 @@ It is this easy to use:
 ```rust
 #[launch]
 fn rocket() -> Rocket<Build> {
-    let options = CCOptions::builder()
+    let options = CCOptionsBuilder::builder()
             .max_age(Some(300))
-            .no_cache(Some(()));
+            .no_cache(Some(()))
+            .build();
   
     rocket::build()
-        .mount("/assets", CCFileServer::from("www/public/assets"))
-        .mount("/js", CCFileServer::new("www/public/js", options))
+            .mount("/assets", CCFileServer::new("www/public/assets", options.clone(), Options::default()))
+            .mount("/js", CCFileServer::new("www/public/js", options, Options::default()))
 }
 ```
 
